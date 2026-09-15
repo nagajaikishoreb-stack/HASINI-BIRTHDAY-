@@ -1,1 +1,974 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Hasini 🎂 - From Kishore</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 50% 30%, #3b155f 0%, #12001f 40%, #050008 100%);
+
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        /* ---------------- SLIDES ---------------- */
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            padding: 25px;
+
+            opacity: 0;
+            pointer-events: none;
+
+            transform: scale(.9) translateX(100px);
+
+            transition: all .8s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1) translateX(0);
+        }
+
+        .slide.hide {
+            opacity: 0;
+            transform: translateX(-100px) scale(.9);
+        }
+
+        /* ---------------- TEXT ---------------- */
+
+        .hand {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .pink {
+            color: #ff4fd8;
+            text-shadow:
+                0 0 10px #ff4fd8,
+                0 0 25px #ff1493;
+        }
+
+        .gold {
+            color: #ffd700;
+            text-shadow:
+                0 0 10px #ffd700,
+                0 0 25px #ff9800;
+        }
+
+        .cyan {
+            color: #00eaff;
+            text-shadow:
+                0 0 10px #00eaff,
+                0 0 20px #00eaff;
+        }
+
+        /* ---------------- BUTTON ---------------- */
+
+        .btn {
+            margin-top: 30px;
+
+            padding: 14px 30px;
+
+            border: 2px solid #ff4fd8;
+            border-radius: 50px;
+
+            background: transparent;
+
+            color: #ff4fd8;
+
+            font-size: 17px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 0 10px #ff4fd8,
+                inset 0 0 10px #ff4fd8;
+
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #ff4fd8;
+            color: #17001f;
+
+            box-shadow:
+                0 0 20px #ff4fd8,
+                0 0 50px #ff4fd8;
+        }
+
+        /* ---------------- BIRTHDAY CAKE ---------------- */
+
+        .cake {
+            position: relative;
+            width: 180px;
+            height: 130px;
+
+            margin-bottom: 30px;
+
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .cake-body {
+            position: absolute;
+
+            bottom: 0;
+            left: 10px;
+
+            width: 160px;
+            height: 80px;
+
+            background: linear-gradient(#ff5fa2, #c2185b);
+
+            border-radius: 15px 15px 25px 25px;
+
+            box-shadow:
+                0 0 20px #ff4fd8;
+        }
+
+        .cake-top {
+            position: absolute;
+
+            top: 35px;
+            left: 0;
+
+            width: 180px;
+            height: 35px;
+
+            background: #ff9acb;
+
+            border-radius: 50%;
+
+            box-shadow: 0 0 15px #ff4fd8;
+        }
+
+        .candle {
+            position: absolute;
+
+            top: 0;
+            left: 85px;
+
+            width: 10px;
+            height: 40px;
+
+            background: #ffd700;
+
+            border-radius: 5px;
+        }
+
+        .flame {
+            position: absolute;
+
+            top: -22px;
+            left: -4px;
+
+            width: 18px;
+            height: 22px;
+
+            background: #ff9800;
+
+            border-radius: 50% 50% 50% 0;
+
+            transform: rotate(-45deg);
+
+            box-shadow:
+                0 0 10px #ff9800,
+                0 0 25px #ffd700;
+
+            animation: flame 1s infinite alternate;
+        }
+
+        @keyframes flame {
+            from {
+                transform: rotate(-45deg) scale(1);
+            }
+
+            to {
+                transform: rotate(-45deg) scale(1.2);
+            }
+        }
+
+        /* ---------------- METER ---------------- */
+
+        .meter {
+            width: 80%;
+            max-width: 450px;
+
+            height: 25px;
+
+            border: 2px solid #00eaff;
+
+            border-radius: 30px;
+
+            padding: 3px;
+
+            box-shadow: 0 0 15px #00eaff;
+        }
+
+        .meter-fill {
+            width: 0%;
+            height: 100%;
+
+            border-radius: 30px;
+
+            background: linear-gradient(
+                90deg,
+                #ff1493,
+                #ff4fd8,
+                #ffd700
+            );
+
+            transition: width .08s linear;
+        }
+
+        #meterText {
+            margin-top: 20px;
+
+            font-size: 20px;
+
+            color: #00eaff;
+
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+        /* ---------------- CARDS ---------------- */
+
+        .cards {
+            width: 100%;
+            max-width: 500px;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+        .card {
+            padding: 18px;
+
+            border: 1px solid #ff4fd8;
+
+            border-radius: 15px;
+
+            background: rgba(255, 0, 170, .08);
+
+            box-shadow: 0 0 10px rgba(255, 79, 216, .2);
+
+            cursor: pointer;
+
+            transition: .4s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+
+            box-shadow:
+                0 0 20px #ff4fd8;
+        }
+
+        .card i {
+            color: #ffd700;
+
+            font-size: 22px;
+
+            margin-right: 10px;
+        }
+
+        .card span {
+            color: #ff4fd8;
+
+            font-weight: 600;
+        }
+
+        /* ---------------- LETTER ---------------- */
+
+        .letter {
+            width: 90%;
+            max-width: 550px;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            background: rgba(25, 0, 40, .8);
+
+            border: 1px solid #ff4fd8;
+
+            box-shadow:
+                0 0 25px rgba(255, 79, 216, .4);
+
+            line-height: 1.8;
+
+            text-align: left;
+
+            display: none;
+
+            animation: appear .8s ease;
+        }
+
+        .letter.show {
+            display: block;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---------------- BALLOONS ---------------- */
+
+        .balloon {
+            position: fixed;
+
+            bottom: -100px;
+
+            font-size: 45px;
+
+            animation: balloonUp 6s linear forwards;
+
+            z-index: -1;
+        }
+
+        @keyframes balloonUp {
+
+            0% {
+                transform: translateY(0) rotate(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-120vh) rotate(20deg);
+                opacity: 0;
+            }
+
+        }
+
+        /* ---------------- FLOAT ---------------- */
+
+        @keyframes float {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+        }
+
+        /* ---------------- FINAL ---------------- */
+
+        .final-heart {
+            font-size: 100px;
+
+            color: #ff1493;
+
+            text-shadow:
+                0 0 20px #ff1493,
+                0 0 50px #ff1493;
+
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+        }
+
+        .small {
+            font-size: 15px;
+            margin-top: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- ================================================= -->
+<!-- SLIDE 1 -->
+<!-- ================================================= -->
+
+<section id="slide1" class="slide active">
+
+    <div class="cake">
+
+        <div class="candle">
+            <div class="flame"></div>
+        </div>
+
+        <div class="cake-top"></div>
+
+        <div class="cake-body"></div>
+
+    </div>
+
+    <h1 class="hand pink" style="font-size:55px;">
+        Hey Hasini ❤️
+    </h1>
+
+    <p class="cyan" style="font-size:19px; margin-top:15px;">
+        Someone special has a little surprise for you...
+    </p>
+
+    <p class="hand gold" style="font-size:30px; margin-top:15px;">
+        From Kishore ✨
+    </p>
+
+    <button class="btn" onclick="nextSlide(1)">
+        Open Your Surprise 🎁
+    </button>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- SLIDE 2 -->
+<!-- ================================================= -->
+
+<section id="slide2" class="slide">
+
+    <h2 class="hand pink" style="font-size:45px;">
+        Birthday Happiness Meter 🎂
+    </h2>
+
+    <p class="cyan" style="margin:15px;">
+        Calculating how amazing your birthday should be...
+    </p>
+
+    <div class="meter">
+
+        <div id="meterFill" class="meter-fill"></div>
+
+    </div>
+
+    <div id="meterText">
+        Loading... 0%
+    </div>
+
+    <div id="meterResult"
+         style="display:none; margin-top:30px;">
+
+        <h2 class="gold">
+            💥 SYSTEM OVERLOAD! 💥
+        </h2>
+
+        <p class="pink" style="margin-top:10px;">
+            Too much happiness detected!
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- SLIDE 3 -->
+<!-- ================================================= -->
+
+<section id="slide3" class="slide"
+      style="overflow-y:auto;">
+
+    <h2 class="hand pink" style="font-size:45px;">
+        A Few Things About You 💖
+    </h2>
+
+    <p class="cyan" style="margin-top:10px;">
+        Tap each card to reveal a birthday message
+    </p>
+
+    <div class="cards">
+
+        <div class="card"
+             onclick="reveal(this,
+             'Your smile can make even an ordinary day feel special 😊')">
+
+            <i class="fas fa-heart"></i>
+
+            <span>Tap to reveal...</span>
+
+        </div>
+
+
+        <div class="card"
+             onclick="reveal(this,
+             'You deserve all the happiness, love and success in the world ✨')">
+
+            <i class="fas fa-star"></i>
+
+            <span>Tap to reveal...</span>
+
+        </div>
+
+
+        <div class="card"
+             onclick="reveal(this,
+             'May this new year of your life be filled with beautiful memories 🎂')">
+
+            <i class="fas fa-cake-candles"></i>
+
+            <span>Tap to reveal...</span>
+
+        </div>
+
+
+        <div class="card"
+             onclick="reveal(this,
+             'Never stop smiling, dreaming and being the wonderful person you are 💕')">
+
+            <i class="fas fa-sparkles"></i>
+
+            <span>Tap to reveal...</span>
+
+        </div>
+
+
+        <div class="card"
+             onclick="reveal(this,
+             'And most importantly... always remember that you are special ❤️')">
+
+            <i class="fas fa-gift"></i>
+
+            <span>Tap to reveal...</span>
+
+        </div>
+
+    </div>
+
+    <button id="next3"
+            class="btn"
+            style="opacity:0; pointer-events:none;"
+            onclick="nextSlide(3)">
+
+        There is a letter for you 💌
+
+    </button>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- SLIDE 4 -->
+<!-- ================================================= -->
+
+<section id="slide4" class="slide">
+
+    <div id="envelope"
+         onclick="openLetter()"
+         style="
+         width:280px;
+         height:180px;
+         background:#64145f;
+         border-radius:15px;
+         display:flex;
+         justify-content:center;
+         align-items:center;
+         cursor:pointer;
+         box-shadow:0 0 30px #ff4fd8;
+         border:2px solid #ff4fd8;
+         ">
+
+        <div>
+            <i class="fas fa-envelope"
+               style="
+               font-size:75px;
+               color:#ffd700;
+               text-shadow:0 0 15px #ffd700;
+               "></i>
+
+            <p class="cyan"
+               style="margin-top:10px;">
+                Tap to open 💌
+            </p>
+        </div>
+
+    </div>
+
+
+    <div id="letter"
+         class="letter">
+
+        <h2 class="hand pink"
+            style="font-size:35px;">
+            Dear Hasini ❤️
+        </h2>
+
+        <br>
+
+        <p>
+            On your special day, I just want to wish you
+            a very Happy Birthday! 🎂✨
+        </p>
+
+        <p style="margin-top:12px;">
+            May your life always be filled with happiness,
+            beautiful moments, success and people who truly
+            care about you.
+        </p>
+
+        <p style="margin-top:12px;">
+            Keep smiling, keep shining and keep being the
+            amazing person you are. 😊
+        </p>
+
+        <p style="margin-top:12px;">
+            I hope this birthday becomes the beginning of
+            another wonderful chapter in your life.
+        </p>
+
+        <br>
+
+        <p class="hand gold"
+           style="font-size:28px; text-align:right;">
+
+            With lots of wishes ❤️<br>
+            — Kishore
+
+        </p>
+
+    </div>
+
+
+    <button id="finalButton"
+            class="btn"
+            style="display:none;"
+            onclick="nextSlide(4)">
+
+        One Last Surprise 🎁
+
+    </button>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- SLIDE 5 -->
+<!-- ================================================= -->
+
+<section id="slide5" class="slide">
+
+    <div class="final-heart">
+        ❤️
+    </div>
+
+    <h1 class="hand pink"
+        style="
+        font-size:60px;
+        line-height:1.1;
+        margin-top:20px;
+        ">
+
+        Happy Birthday<br>
+        Hasini! 🎂✨
+
+    </h1>
+
+    <p class="gold"
+       style="
+       font-size:22px;
+       margin-top:20px;
+       ">
+
+        May all your dreams come true! 🌟
+
+    </p>
+
+    <p class="hand cyan"
+       style="
+       font-size:35px;
+       margin-top:15px;
+       ">
+
+        Forever wishing you happiness ❤️
+
+    </p>
+
+    <p class="hand pink"
+       style="
+       font-size:32px;
+       margin-top:10px;
+       ">
+
+        — Kishore
+
+    </p>
+
+    <button class="btn"
+            onclick="restart()">
+
+        <i class="fas fa-redo"></i>
+        Replay
+
+    </button>
+
+</section>
+
+
+<script>
+
+/* ================================================= */
+/* SLIDE NAVIGATION */
+/* ================================================= */
+
+function nextSlide(current) {
+
+    const currentSlide =
+        document.getElementById("slide" + current);
+
+    const next =
+        document.getElementById("slide" + (current + 1));
+
+    currentSlide.classList.remove("active");
+    currentSlide.classList.add("hide");
+
+    setTimeout(() => {
+
+        next.classList.add("active");
+
+        if (current + 1 === 2) {
+            startMeter();
+        }
+
+        if (current + 1 === 5) {
+            createBalloons();
+        }
+
+    }, 400);
+}
+
+
+/* ================================================= */
+/* BIRTHDAY METER */
+/* ================================================= */
+
+function startMeter() {
+
+    let value = 0;
+
+    const fill =
+        document.getElementById("meterFill");
+
+    const text =
+        document.getElementById("meterText");
+
+    const result =
+        document.getElementById("meterResult");
+
+    const timer = setInterval(() => {
+
+        value++;
+
+        fill.style.width = value + "%";
+
+        text.innerText =
+            "Calculating... " + value + "%";
+
+        if (value >= 100) {
+
+            clearInterval(timer);
+
+            text.style.display = "none";
+
+            result.style.display = "block";
+
+            setTimeout(() => {
+
+                nextSlide(2);
+
+            }, 2500);
+
+        }
+
+    }, 35);
+
+}
+
+
+/* ================================================= */
+/* REVEAL CARDS */
+/* ================================================= */
+
+let revealed = 0;
+
+function reveal(card, message) {
+
+    if (card.dataset.done === "true") {
+        return;
+    }
+
+    card.dataset.done = "true";
+
+    const span =
+        card.querySelector("span");
+
+    span.innerHTML = message;
+
+    span.style.color = "#00eaff";
+
+    card.style.borderColor = "#00eaff";
+
+    card.style.boxShadow =
+        "0 0 20px #00eaff";
+
+    revealed++;
+
+    if (revealed >= 3) {
+
+        const button =
+            document.getElementById("next3");
+
+        button.style.opacity = "1";
+
+        button.style.pointerEvents = "auto";
+
+    }
+
+}
+
+
+/* ================================================= */
+/* OPEN LETTER */
+/* ================================================= */
+
+function openLetter() {
+
+    const envelope =
+        document.getElementById("envelope");
+
+    const letter =
+        document.getElementById("letter");
+
+    const finalButton =
+        document.getElementById("finalButton");
+
+    envelope.style.display = "none";
+
+    letter.classList.add("show");
+
+    finalButton.style.display = "block";
+
+}
+
+
+/* ================================================= */
+/* FLOATING BALLOONS */
+/* ================================================= */
+
+function createBalloons() {
+
+    const emojis = [
+        "🎈",
+        "🎈",
+        "🎉",
+        "🎈",
+        "✨",
+        "🎈",
+        "🎊",
+        "❤️",
+        "🎈"
+    ];
+
+    for (let i = 0; i < 25; i++) {
+
+        setTimeout(() => {
+
+            const balloon =
+                document.createElement("div");
+
+            balloon.className = "balloon";
+
+            balloon.innerHTML =
+                emojis[Math.floor(
+                    Math.random() * emojis.length
+                )];
+
+            balloon.style.left =
+                Math.random() * 100 + "vw";
+
+            balloon.style.animationDuration =
+                (4 + Math.random() * 4) + "s";
+
+            balloon.style.fontSize =
+                (30 + Math.random() * 35) + "px";
+
+            document.body.appendChild(balloon);
+
+            setTimeout(() => {
+
+                balloon.remove();
+
+            }, 8000);
+
+        }, i * 250);
+
+    }
+
+}
+
+
+/* ================================================= */
+/* REPLAY */
+/* ================================================= */
+
+function restart() {
+
+    location.reload();
+
+}
+
+</script>
+
+</body>
+</html>
